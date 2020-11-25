@@ -1,0 +1,3 @@
+https://opendata.dwd.de/climate_environment/CDC/derived_germany/techn/monthly/heating_degreedays/hdd_3807/historical/
+https://opendata.dwd.de/climate_environment/CDC/derived_germany/techn/monthly/heating_degreedays/hdd_3807/recent/
+https://opendata.dwd.de/climate_environment/CDC/regional_averages_DE/monthly/
