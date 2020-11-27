@@ -1,22 +1,25 @@
--Tipo de trabajo
--IPC
--Paro
--Poblacion y Densidad
--Tasa de extranjeros sobre el total de la población
--Índice de criminalidad
--Contaminación: tráfico, CO2, partículas en el aire...
+Tipo de trabajo
+IPC
+Paro
+Poblacion y Densidad
+Tasa de extranjeros sobre el total de la población
+Índice de criminalidad
+Contaminación: tráfico, CO2, partículas en el aire...
+Renta (PIB) per cápita
+Educación, corrupción, tecnología, medio ambiente, salud, etc.
+Esperanza de vida
+Temperatura MEDIA
+Situación del tiempo: precipitaciones/año; media de días de sol
+Movilidad urbana: bicis
+Impuestos (% sobre PIB o tipo medio sobre la renta)
+Tasa de paro (% anual)
+Numero de vehiculos
 
 Salario medio
-Renta (PIB) per cápita
-Impuestos (% sobre PIB o tipo medio sobre la renta)
-Temperatura MEDIA
-Situación del tiempo: precipitaciones/año; media de días de sol; etc. (lo que haya disponible).
-Costa o no (/ tipo de zona: montaña, etc.)
-Esperanza de vida
+
+
 Movilidad urbana: bicis, metro/bus, taxis (transporte público). Transporte preferido.
-Aeropuerto cercano o no
 Precio medio del metro cuadrado (compra) y precio medio alquiler de viviendas.
-Bienestar personal (UK)
-Índice de libertad individual
-Educación, corrupción, tecnología, medio ambiente, salud, etc.
+School life expectancy (años de escolarización)
+
 
