@@ -1,0 +1,5 @@
+FROM postgres:latest
+ENV POSTGRES_USER docker
+ENV POSTGRES_PASSWORD docker
+ENV POSTGRES_DB dataproject1
+ADD CreateDB.sql /docker-entrypoint-initdb.d/
