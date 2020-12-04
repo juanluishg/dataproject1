@@ -10,7 +10,7 @@ pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
 pd.set_option('display.width', 1000)
 
-os.chdir('./Data/Berlin/')
+os.chdir('C:/Users/JuanLu/Dropbox/I.Informatica/Master/dataproject1/Data/Berlin')
 
 def temperature():
     temp = pd.read_csv("temp_1963-2018.txt", sep=";")
@@ -34,9 +34,22 @@ def temperature():
     final_temp = pd.concat([temp, data, temp2], ignore_index=True)
     print(temp2.head())
 
-    final_temp = final_temp[['STATIONS_ID','MESS_DATUM_BEGINN', 'MESS_DATUM_ENDE', 'MO_TT', 'MO_RR', 'MO_SD_S']]
-    final_temp = final_temp.rename(columns={'STATIONS_ID':'id_estacion','MESS_DATUM_BEGINN':'fecha_inicio', 'MESS_DATUM_ENDE':'fecha_fin', 'MO_TT':'temp_media', 'MO_RR':'sum_precipitacion', 'MO_SD_S':'horas_luz'})
-    final_temp.to_csv("normalize/temp_prep_luz.csv")
+    year = []
+    month = []
+    days = []
+    for a in final_temp.MESS_DATUM_BEGINN:
+        aux = str(a)
+        year.append(aux[:4])
+        month.append(aux[4:6])
+        days.append(aux[6:])
+
+    dates = pd.DataFrame({'Year': year, 'Month': month})
+
+    final_temp = pd.concat([final_temp, dates], axis=1)
+
+    final_temp = final_temp[['STATIONS_ID','Year', 'Month', 'MO_TT', 'MO_RR', 'MO_SD_S']]
+    final_temp = final_temp.rename(columns={'STATIONS_ID':'id_estacion', 'MO_TT':'temp_media', 'MO_RR':'sum_precipitacion', 'MO_SD_S':'horas_luz'})
+    final_temp.to_csv("normalize/temp_prep_luz.csv", index=False)
 
 def num_precipitaciones_al_mes():
     prep = pd.read_csv("precipitaciones_por_dia.txt", sep=";")
@@ -61,10 +74,13 @@ def num_precipitaciones_al_mes():
     sum_df.loc[(sum_df['RS'] > 0), 'Lluvia'] = 1
     sum_df.loc[(sum_df['RS'] == 0), 'Lluvia'] = 0
 
-    sum_df = sum_df.groupby(['Year','Month']).agg({'Lluvia':'sum'})
+    sum_df= sum_df.groupby(['Year','Month']).agg({'Lluvia':'sum'})
 
-    sum_df.to_csv('normalize/num_dias_lluvia.csv')
+    sum_df = sum_df.reset_index(level=['Year', 'Month'])
 
+    sum_df =sum_df.rename(columns={'Lluvia':'num_dias_lluvia'})
+    
+    sum_df.to_csv('normalize/num_dias_lluvia.csv', index=False)
 
 def poblacion():
     columns = ['Region','Year','Population','Persons in employment','Unemployed persons','Economically active population','Economically inactive population']
@@ -83,7 +99,7 @@ def poblacion():
 
     res['pob/km2'] = res['Population']/res['Size(sq km)']
 
-    res.to_csv("normalize/poblacion_superficie.csv")
+    res.to_csv("normalize/poblacion_superficie.csv", index=False)
 
 def arte():
 
@@ -92,26 +108,14 @@ def arte():
 
     berlin = art[art['Region'].str.contains('Berlin')]
 
-    pob = pd.read_csv('normalize/poblacion_superficie.csv')
-    pob_year = pob[pob['Year'].str.startswith('20')]
+    res = berlin.loc[(berlin.Type == 'Museums per 100,000 inhabitants')]
+    a = berlin.loc[berlin.Type == 'Cinemas (screens) per 100,000 inhabitants']
 
-    years = list(berlin.columns[2:].values)
-
-    newDf = pd.DataFrame({'Region': 'Berlin', 'Year':years, 'Museums': 0, 'Theaters': 0, 'Cinemas':0},columns=['Region', 'Year', 'Museums', 'Theaters', 'Cinemas'])
-    #print(newDf.head())
-
-    mus = berlin[berlin['Type'] == 'Museums per 100,000 inhabitants']
-    mus = mus.drop(['Region', 'Type'], axis=1)
-    mus = mus.transpose()
-    mus = (mus.values.tolist())
-    flattened = [val for sublist in mus for val in sublist]
-    pop = pob['Population'].values.tolist()
+    res = pd.concat([res, a], axis=0)
     
-    res = []
-    for i in range(0, len(pop)):
-        res.append(mus[i] * (pop[i]/100000))
+    res.to_csv("normalize/museums_cinemas_per_100000.csv", index=False)
 
-    print(res)
+arte()
 
 """
 year = []
@@ -156,7 +160,7 @@ def ipc ():
 
     res = res[['Year', 'Berlin', 'Variacion']]
 
-    res.to_csv("normalize/ipc_con_variacion.csv")
+    res.to_csv("normalize/ipc_con_variacion.csv", index=False)
 
 
 def pib():
@@ -186,4 +190,33 @@ def pib():
 
     newDf = newDf[['Year','Berlin','Value','ppp']]
 
-    newDf.to_csv("normalize/pib_in_ppp.csv")
+    newDf.to_csv("normalize/pib_in_ppp.csv", index=False)
+
+def esperanza():
+    vida = pd.read_csv("Esperanza_de_Vida_Por_Regiones.csv", sep=";", header=0, skiprows=5, encoding='ansi')
+    vida = vida.rename(columns={vida.columns[0]:'Gender', vida.columns[1]:'Region'})
+
+    vida = vida.loc[(vida.Region == 'Berlin')]
+    print(vida.head())
+
+    vida.to_csv("normalize/esperanza_vida.csv", index=False)
+
+def revenue_taxes():
+    tax = pd.read_csv("Revenue_Tax.csv", sep=",", header=0, skiprows=3)
+
+    berlin_tax = tax.loc[(tax['Country Name'] == 'Germany')]
+
+    berlin_tax = berlin_tax.dropna(axis=1)
+    
+    print(berlin_tax.head())
+
+    berlin_tax.to_csv("normalize/revenue_taxes.csv", index=False)
+
+#temperature()
+#num_precipitaciones_al_mes()
+#poblacion()
+#arte()
+#ipc()
+#pib()
+#esperanza()
+#revenue_taxes()
