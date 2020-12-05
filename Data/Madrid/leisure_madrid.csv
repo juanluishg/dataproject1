@@ -1,12 +1,2 @@
-﻿Cultura;;;;;;;;;;;;;;;;;;;;
- Museos y monumentos;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;
-3.1. Visitantes por Museo y Titularidad (miles de personas);;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;
-;2000;2001;2002;2003;2004;2005;2006;2007;2008;2009;2010;2011;2012;2013;2014;2015;2016;2017;2018;2019
-Total;;;;;;;;;;;;;;;;;;;;
-     Total  Museos;5.948;5.808;6.088;6.900;7.314;7.632;7.978;8.933;9.042;9.264;9.521;11.513;11.835;11.652;12.445;13.083;13.723;10.101;16.448;14.734
-;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;
-FUENTE: Instituto de Estadística de la Comunidad de Madrid. Anuario Estadístico;;;;;;;;;;;;;;;;;;;;
-"OBSERVACIONES: Museo Arqueológico: cerrado en 2012 y 2013. Museo Romántico: cerrado por obras desde el 2002. Museo Sorolla: En el año 2002 sólo estuvo abierto los meses noviembre y diciembre. Museo Bellas Artes de San Fernando: Desde el año 2010 se reduce el horario de apertura al público. Museo Cerralbo: Cerrado desde el año 2007 al 2010. Museo Reina Sofía: Incluye visitantes de los Palacios de Velázquez y de Cristal. Museo del Ejército: Abierto los meses de noviembre y diciembre hasta 2002. En el año 2005 la cifra corresponde al primer semestre del año, se encuentra cerrado desde el 30 de junio de 2006. Museo de Historia de Madrid: Desde el 21/05/2002 al 11/05/2003 permaneció cerrado por obras; del 10/03/2008 al 24/04//2008 y del 24/09/2008 hasta el año 2011 permaneció cerrado por obras de rehabilitación. MAC: Cerrado por obras desde el año 2011.  Museo de Bomberos: Cerrado a partir de agosto 2014 por obras. Panteón de Hombres Ilustres: A partir de 2007 tiene acceso libre y por tanto no se contabiliza";;;;;;;;;;;;;;;;;;;;
+,Año,Museos,Poblacion,Museos_hab
+0,2019,96,3266126,"2,939"
