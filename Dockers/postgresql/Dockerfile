@@ -1,4 +1,4 @@
-FROM postgres:latest
+FROM postgres:10
 ENV POSTGRES_USER docker
 ENV POSTGRES_PASSWORD docker
 ENV POSTGRES_DB dataproject1

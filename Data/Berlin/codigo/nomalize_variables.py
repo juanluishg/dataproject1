@@ -112,7 +112,10 @@ def arte():
     a = berlin.loc[berlin.Type == 'Cinemas (screens) per 100,000 inhabitants']
 
     res = pd.concat([res, a], axis=0)
-    
+
+    res.Type.loc[(res.Type == 'Museums per 100,000 inhabitants')] = 'Museums per 100.000 inhabitants'
+    res.Type.loc[res.Type == 'Cinemas (screens) per 100,000 inhabitants'] = 'Cinemas (screens) per 100.000 inhabitants'
+
     res.to_csv("normalize/museums_cinemas_per_100000.csv", index=False)
 
 arte()
@@ -215,7 +218,7 @@ def revenue_taxes():
 #temperature()
 #num_precipitaciones_al_mes()
 #poblacion()
-#arte()
+arte()
 #ipc()
 #pib()
 #esperanza()
