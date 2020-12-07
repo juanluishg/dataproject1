@@ -45,8 +45,8 @@ CREATE TABLE datos (
 CREATE TABLE weather (
     id integer PRIMARY KEY,
     city_id integer REFERENCES datos(city_id),
-    month integer
-    year integer
+    w_month integer,
+    w_year integer,
     c_temp double precision,
     c_rainy_days integer
 );
