@@ -1,5 +1,5 @@
 CREATE TABLE clientes (
-    client_id serial,
+    client_id serial PRIMARY KEY,
     client_name varchar(255) ,
     years numeric(3,0) ,
     email varchar(255) ,
@@ -14,11 +14,10 @@ CREATE TABLE clientes (
     salary numeric(10,3) ,
     percentaje_home numeric(3,0) ,
     interest_variable varchar(50),
-    PRIMARY KEY(client_id)
 );
 
 CREATE TABLE datos (
-    city_id serial,
+    city_id serial PRIMARY KEY,
     city_name varchar(255) UNIQUE ,
     languages varchar(50) ,
     pollution double precision ,
@@ -28,7 +27,7 @@ CREATE TABLE datos (
     beach boolean ,
     c_temp double precision,
     c_rainy_days integer,
-    c_weather integer,
+    c_weather integer REFERENCES weather(id),
     c_population double precision,
     density double precision,
     leisure double precision,
@@ -41,20 +40,13 @@ CREATE TABLE datos (
     doing_business integer,
     freedom double precision,
     life_expectancy double precision,
-    PRIMARY KEY(city_id),
-    CONSTRAINT fk_datos
-        FOREIGN KEY(c_weather)
-            REFERENCES weather(id)
 );
 
 CREATE TABLE weather (
     id integer PRIMARY KEY,
-    city_id integer,
+    city_id integer REFERENCES datos(city_id),
     month integer
     year integer
     c_temp double precision,
     c_rainy_days integer,
-    CONSTRAINT fk_weather
-        FOREIGN KEY(city_id)
-            REFERENCES datos(city_id)
     )
