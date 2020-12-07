@@ -9,4 +9,8 @@ os.chdir('C:/Users/JuanLu/Dropbox/I.Informatica/Master/dataproject1/Data/Berlin'
 
 
 temp = pd.read_csv("normalize/temp_prep_luz.csv")
-print(temp.head())
+
+temp_media = temp.groupby('Year')['temp_media'].mean()
+
+print(temp_media)
+

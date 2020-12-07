@@ -21,7 +21,7 @@ CREATE TABLE datos (
     city_name varchar(255) UNIQUE ,
     languages varchar(50) ,
     pollution double precision ,
-    best_mobility_option double precision ,
+    best_mobility_option varchar(255) ,
     work_spaces integer ,
     mountain boolean ,
     beach boolean ,
@@ -36,7 +36,7 @@ CREATE TABLE datos (
     tax_burden double precision,
     crime_rate double precision,
     hdi double precision,
-    doing_business double precision,
+    doing_business integer,
     freedom double precision,
     life_expectancy double precision
 );
