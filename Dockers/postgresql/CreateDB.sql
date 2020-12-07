@@ -48,5 +48,5 @@ CREATE TABLE weather (
     month integer
     year integer
     c_temp double precision,
-    c_rainy_days integer,
-    )
+    c_rainy_days integer
+)
