@@ -16,6 +16,14 @@ CREATE TABLE clientes (
     interest_variable varchar(50)
 );
 
+CREATE TABLE weather (
+    id integer PRIMARY KEY,
+    w_month integer,
+    w_year integer,
+    c_temp double precision,
+    c_rainy_days integer
+);
+
 CREATE TABLE datos (
     city_id serial PRIMARY KEY,
     city_name varchar(255) UNIQUE ,
@@ -42,11 +50,3 @@ CREATE TABLE datos (
     life_expectancy double precision
 );
 
-CREATE TABLE weather (
-    id integer PRIMARY KEY,
-    city_id integer REFERENCES datos(city_id),
-    w_month integer,
-    w_year integer,
-    c_temp double precision,
-    c_rainy_days integer
-);
