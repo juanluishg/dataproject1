@@ -43,7 +43,7 @@ CREATE TABLE datos (
 
 CREATE TABLE weather (
     id integer PRIMARY KEY,
-    city_id integer REFERENCES datos(city_id)
+    city_id integer REFERENCES datos(city_id),
     w_month integer,
     w_year integer,
     c_temp double precision,
