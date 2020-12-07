@@ -13,7 +13,7 @@ CREATE TABLE clientes (
     entreteiment boolean ,
     salary numeric(10,3) ,
     percentaje_home numeric(3,0) ,
-    interest_variable varchar(50),
+    interest_variable varchar(50)
 );
 
 CREATE TABLE datos (
@@ -39,7 +39,7 @@ CREATE TABLE datos (
     hdi double precision,
     doing_business integer,
     freedom double precision,
-    life_expectancy double precision,
+    life_expectancy double precision
 );
 
 CREATE TABLE weather (
@@ -49,4 +49,4 @@ CREATE TABLE weather (
     year integer
     c_temp double precision,
     c_rainy_days integer
-)
+);
