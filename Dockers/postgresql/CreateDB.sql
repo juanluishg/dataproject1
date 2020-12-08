@@ -1,18 +1,18 @@
 CREATE TABLE clientes (
     client_id serial PRIMARY KEY,
     client_name varchar(255) ,
-    years numeric(3,0) ,
+    years integer ,
     email varchar(255) ,
     idioma varchar(255) ,
-    enviromental_score numeric(1,0) ,
+    enviromental_score integer ,
     transport varchar(50) ,
     work_preference varchar(50) ,
-    place_score numeric(1,0) ,
+    place_score integer ,
     season varchar(50) ,
     size_preference varchar(50) ,
     entreteiment boolean ,
-    salary numeric(10,3) ,
-    percentaje_home numeric(3,0) ,
+    salary integer ,
+    percentaje_home double precision ,
     interest_variable varchar(50)
 );
 
