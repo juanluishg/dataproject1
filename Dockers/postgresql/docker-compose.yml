@@ -1,33 +1,22 @@
-version: '3.5'
+version: '2'
 
 services:
   zookeeper:
     image: debezium/zookeeper:1.3
-    environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
-      ZOOKEEPER_TICK_TIME: 2000
     ports:
       - 2181:2181
       - 2888:2888
       - 3888:3888
-    networks:
-      - debezium
-
   kafka:
     image: debezium/kafka:1.3
     ports:
       - 9092:9092
-    depends_on:
+    links:
       - zookeeper
+    environment:
+      ZOOKEEPER_CONNECT: zookeeper:2181
     networks:
       - debezium
-    environment:
-      KAFKA_BROKER_ID: 1
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
   postgres:
     build: "."
     container_name: "database"
@@ -40,8 +29,6 @@ services:
        - postgres:/data/postgres
     ports:
       - "5432:5432"
-    networks:
-      - debezium
     restart: unless-stopped
 
   pgadmin:
@@ -54,8 +41,6 @@ services:
        - pgadmin:/root/.pgadmin
     ports:
       - "${PGADMIN_PORT:-5050}:80"
-    networks:
-      - debezium
     restart: unless-stopped
 
   connect:
@@ -68,15 +53,11 @@ services:
       OFFSET_STORAGE_TOPIC: my_connect_offsets
       STATUS_STORAGE_TOPIC: my_connect_statuses
       BOOTSTRAP_SERVERS: kafka:9092
-    depends_on:
-      - zookeeper
+    links:
       - kafka
       - postgres
     networks:
       - debezium
-networks:
-  debezium:
-    driver: bridge
  
 volumes:
     postgres:
