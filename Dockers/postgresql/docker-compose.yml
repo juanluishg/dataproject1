@@ -15,8 +15,6 @@ services:
       - zookeeper
     environment:
       ZOOKEEPER_CONNECT: zookeeper:2181
-    networks:
-      - debezium
   postgres:
     build: "."
     container_name: "database"
