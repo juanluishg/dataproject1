@@ -7,7 +7,7 @@ CREATE TABLE clientes (
     enviromental_score integer ,
     transport varchar(50) ,
     work_preference varchar(50) ,
-    place_score integer ,
+    place_score varchar(50) ,
     season varchar(50) ,
     size_preference varchar(50) ,
     entreteiment boolean ,
