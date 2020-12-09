@@ -54,8 +54,6 @@ services:
     links:
       - kafka
       - postgres
-    networks:
-      - debezium
  
 volumes:
     postgres:
