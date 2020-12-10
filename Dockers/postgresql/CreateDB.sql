@@ -1,6 +1,6 @@
 CREATE TABLE clientes (
     client_id serial PRIMARY KEY,
-    client_name varchar(255) ,
+    best_city_name varchar(255) ,
     years integer ,
     email varchar(255) ,
     idioma varchar(255) ,

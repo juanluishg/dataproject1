@@ -10,7 +10,7 @@ Install dependencies
 """
 #%reset -f
 
-!pip install psycopg2
+#!pip install psycopg2
 
 """Import libraries"""
 
@@ -66,7 +66,7 @@ df.head()
 
 """Obtain "clientes" of the clients responses"""
 
-cursor.execute("SELECT * FROM clientes;")
+cursor.execute("SELECT * FROM clientes ORDER BY client_id DESC;")
 record = cursor.fetchall()
 
 cursor.execute("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'clientes'")
@@ -84,38 +84,38 @@ df['score'] = 0
 """Pollution Variable"""
 
 env_score = clientes.iloc[0].enviromental_score
-pollution_cities = pd.Dataframe()
+pollution_cities = pd.DataFrame()
 print(env_score)
 if env_score == 5:
   min = df.pollution.min()
-  df.score[df.pollution == min] = df.score[df.pollution == min]+1
+  df.loc[df.pollution == min, 'score'] +=1
   pollution_cities = df[df.pollution == min]
 elif env_score == 4:
   order_by_pollution = df.sort_values(by=['pollution'], ascending=True)
   mins = order_by_pollution.iloc[:2]
   for _, i in mins.iterrows():
-    df.score[df.city_id == i.city_id] += 1
+    df.loc[df.city_id == i.city_id, 'score'] += 1
     pd.concat([pollution_cities, i])
 elif env_score == 3:
   order_by_pollution = df.sort_values(by=['pollution'], ascending=True)
   mins = order_by_pollution.iloc[:3]
   for _, i in mins.iterrows():
-    df.score[df.city_id == i.city_id] += 1
+    df.loc[df.city_id == i.city_id, 'score'] += 1
     pd.concat([pollution_cities, i])
 elif env_score == 2:
   order_by_pollution = df.sort_values(by=['pollution'], ascending=True)
   mins = order_by_pollution.iloc[:4]
   for _, i in mins.iterrows():
-    df.score[df.city_id == i.city_id] += 1
+    df.loc[df.city_id == i.city_id, 'score'] += 1
     pd.concat([pollution_cities, i])
 elif env_score == 1:
   order_by_pollution = df.sort_values(by=['pollution'], ascending=True)
   mins = order_by_pollution.iloc[:5]
   for _, i in mins.iterrows():
-    df.score[df.city_id == i.city_id] += 1
+    df.loc[df.city_id == i.city_id, 'score'] += 1
     pd.concat([pollution_cities, i])
 
-df.head()
+#df.head()
 
 """Work Spaces Variable"""
 
@@ -128,7 +128,7 @@ if wk_space == 'Co-Working':
   wk_cities = aux.loc[aux.ratio>0.006]
   print(aux.head())
 
-wk_cities
+#wk_cities
 
 """Transport Variable"""
 
@@ -136,18 +136,17 @@ a = {'Walking': 'Andando', 'Car': 'Coche', 'Bike': 'Bici', 'Motorbike': 'Moto', 
 df.best_mobility_option.replace(a, inplace=True)
 
 clientex = clientes.iloc[0].transport
-df.score[df.best_mobility_option == clientex]+=1
-print(df.head())
+df.loc[df.best_mobility_option == clientex, 'score']+=1
 transport_cities = df.loc[df.best_mobility_option == clientex]
 
 
-""""
+"""
 cliente = clientes.iloc[0].transport
 for _, i in df.iterrows():
   if i.best_mobility_option == cliente:
     df.score[df.city_id == i.city_id] += 1
 print(df.head())
-""""
+"""
 
 cliente= clientes.iloc[0]
 
@@ -158,35 +157,35 @@ cliente= clientes.iloc[0]
 landscape_cities = pd.DataFrame()
 for _, i in df.iterrows():
   if i.mountain == True and i.beach == False and cliente.place_score == 'Montaña':
-    df.score[df.city_id == i.city_id] += 1
+    df.loc[df.city_id == i.city_id, 'score'] += 1
     landscape_cities = pd.concat([landscape_cities, i])
   elif i.mountain == False and i.beach == True and cliente.place_score == 'Playa':
-    df.score[df.city_id == i.city_id] += 1
+    df.loc[df.city_id == i.city_id, 'score'] += 1
     landscape_cities = pd.concat([landscape_cities, i])
   elif i.mountain == True and i.beach == True and cliente.place_score == 'Ambos':
-    df.score[df.city_id == i.city_id] += 1
+    df.loc[df.city_id == i.city_id, 'score'] += 1
     landscape_cities = pd.concat([landscape_cities, i])
   elif i.mountain == False and i.beach == False and cliente.place_score == 'Ninguno':
-    df.score[df.city_id == i.city_id] += 1
+    df.loc[df.city_id == i.city_id, 'score'] += 1
     landscape_cities = pd.concat([landscape_cities, i])
-df.score[landscape_cities.city_id == df.city_id] += 1
+
 
 
 """Weather Variable"""
 
 weather_cities = pd.DataFrame()
 for _, i in df.iterrows():
-  if i.c_temp < 15 or i.c_rainy_days > 20 and cliente.season == 'Invierno':
-    df.score[df.city_id == i.city_id] += 1
+  if (i.c_temp < 15 or i.c_rainy_days > 20) and cliente.season == 'Invierno':
+    df.loc[df.city_id == i.city_id, 'score'] += 1
     weather_cities = pd.concat([weather_cities, i])
-  elif 15 <= i.c_temp <= 25 or  10 <= i.c_rainy_days <= 20 and cliente.season == 'Primavera':
-    df.score[df.city_id == i.city_id] += 1
+  elif (15 <= i.c_temp <= 25 or  10 <= i.c_rainy_days) <= 20 and cliente.season == 'Primavera':
+    df.loc[df.city_id == i.city_id, 'score'] += 1
     weather_cities = pd.concat([weather_cities, i])
-  elif i.c_temp > 25 or i.c_rainy_days < 10 and cliente.season == 'Verano':
-    df.score[df.city_id == i.city_id] += 1
+  elif (i.c_temp > 25 or i.c_rainy_days < 10) and cliente.season == 'Verano':
+    df.loc[df.city_id == i.city_id, 'score'] += 1
     weather_cities = pd.concat([weather_cities, i])
-  elif 15 <= i.c_temp <= 25 or  10 <= i.c_rainy_days <= 20 and cliente.season == 'Otoño':
-    df.score[df.city_id == i.city_id] += 1
+  elif (15 <= i.c_temp <= 25 or  10 <= i.c_rainy_days <= 20) and cliente.season == 'Otoño':
+    df.loc[df.city_id == i.city_id, 'score'] += 1
     weather_cities = pd.concat([weather_cities, i])
 
 """Housing Variable"""
@@ -194,13 +193,13 @@ for _, i in df.iterrows():
 housing_cities = pd.DataFrame()
 for _, i in df.iterrows():
   if i.housing and cliente.percentaje_home > 50:
-    df.score[df.city_id == i.city_id] += 1
+    df.loc[df.city_id == i.city_id, 'score'] += 1
     housing_cities = pd.concat([housing_cities, i])
   elif i.housing < 15 and 30 <= cliente.percentaje_home <= 50:
-    df.score[df.city_id == i.city_id] += 1
+    df.loc[df.city_id == i.city_id, 'score'] += 1
     housing_cities = pd.concat([housing_cities, i])
   elif i.housing < 5 and cliente.percentaje_home < 30:
-    df.score[df.city_id == i.city_id] += 1
+    df.loc[df.city_id == i.city_id, 'score'] += 1
     housing_cities = pd.concat([housing_cities, i])
 
 """Size Variable"""
@@ -208,77 +207,88 @@ for _, i in df.iterrows():
 size_cities = pd.DataFrame()
 for _, i in df.iterrows():
   if i.c_population < 2000000 and cliente.size_preference == 'Pequeñas':
-    df.score[df.city_id == i.city_id] += 1
+    df.loc[df.city_id == i.city_id, 'score'] += 1
     size_cities = pd.concat([size_cities, i])
   elif 2000000 <= i.c_population <= 4000000 and cliente.size_preference == 'Medianas':
-    df.score[df.city_id == i.city_id] += 1
+    df.loc[df.city_id == i.city_id, 'score'] += 1
     size_cities = pd.concat([size_cities, i])
   elif i.c_population > 4000000 and cliente.size_preference == 'Grandes':
-    df.score[df.city_id == i.city_id] += 1
+    df.loc[df.city_id == i.city_id, 'score'] += 1
     size_cities = pd.concat([size_cities, i])
 
 """Leisure Variable"""
 
 leisure_cities = pd.DataFrame()
 if cliente.entreteiment == 'Sí':
-  max = df.leisure.max()
-  df.score[df.leisure == max] = df.score[df.leisure == min]+1
-  leisure_cities = df[df.leisure == max]
+  max_leisure = df.leisure.max()
+  df.loc[df.leisure == max_leisure, 'score'] += 1
+  leisure_cities = df[df.leisure == max_leisure]
 
 """Non-client Variables"""
 
-min = df.cpi.min()
-df.score[df.cpi == min] += 0.5
+min_cpi = df.cpi.min()
+df.loc[df.cpi == min_cpi, 'score'] += 0.5
 
-max = df.gdp_pc.max()
-df.score[df.gdp_pc == max] += 0.5
+max_gdp= df.gdp_pc.max()
+df.loc[df.gdp_pc == max_gdp, 'score'] += 0.5
 
-min = df.tax_burden.min()
-df.score[df.tax_burden == min] += 0.5
+min_tax = df.tax_burden.min()
+df.loc[df.tax_burden == min_tax, 'score'] += 0.5
 
-min = df.crime_rate.min()
-df.score[df.crime_rate == min] += 0.5
+min_crime = df.crime_rate.min()
+df.loc[df.crime_rate == min_crime, 'score'] += 0.5
 
-max = df.hdi.max()
-df.score[df.hdi == max] += 0.5
+max_hdi = df.hdi.max()
+df.loc[df.hdi == max_hdi, 'score'] += 0.5
 
-max = df.doing_business.max()
-df.score[df.doing_business == max] += 0.5
+max_doing_business = df.doing_business.max()
+df.loc[df.doing_business == max_doing_business, 'score'] += 0.5
 
-max = df.freedom.max()
-df.score[df.freedom == max] += 0.5
+max_freedom = df.freedom.max()
+df.loc[df.freedom == max_freedom, 'score'] += 0.5
 
-max = df.life_expectancy.max()
-df.score[df.life_expectancy == max] += 0.5
+max_life = df.life_expectancy.max()
+df.loc[df.life_expectancy == max_life, 'score'] += 0.5
 
 """Factor"""
 
 factor = clientes.iloc[0].interest_variable
 if factor == 'Medio ambiente':
   for _, i in pollution_cities:
-    df.score[i.city_id == df.city_id]=+1
+    df.loc[i.city_id == df.city_id, 'score']+=1
 elif factor == 'Zona de trabajo':
   for _, i in wk_cities:
-    df.score[i.city_id == df.city_id]=+1
+    df.loc[i.city_id == df.city_id, 'score']+=1
 elif factor == 'Tamaño de la ciudad':
   for _, i in size_cities:
-    df.score[i.city_id == df.city_id]=+1
+    df.loc[i.city_id == df.city_id, 'score']+=1
 elif factor == 'Ocio':
   for _, i in leisure_cities:
-    df.score[i.city_id == df.city_id]=+1
+    df.loc[i.city_id == df.city_id, 'score']+=1
 elif factor == 'Gasto en vivienda':
-  for _, i in economy_cities:
-    df.score[i.city_id == df.city_id]=+1
+  for _, i in housing_cities:
+    df.loc[i.city_id == df.city_id, 'score']+=1
 elif factor == 'Clima':
-  for _, i in weather_cities:
-    df.score[i.city_id == df.city_id]=+1
+  for _, i in weather_cities[0].city_id.iteritems():
+    df.loc[i == df.city_id, 'score']+=1
+    print(i)
 elif factor == 'Movilidad urbana':
   for _, i in transport_cities:
-    df.score[i.city_id == df.city_id]=+1
+    df.loc[i.city_id == df.city_id, 'score']+=1
 elif factor == 'Paisaje':
   for _, i in landscape_cities:
-    df.score[i.city_id == df.city_id]=+1
+    df.loc[i.city_id == df.city_id, 'score']+=1
 
 """ELEGIR CIUDAD"""
 
-df[df.score == df.score.max()]
+ciudad_ideal = df[df.score == df.score.max()]
+print("Tu ciudad ideal es: "+ ciudad_ideal.city_name)
+
+"""
+cursor = connection.cursor()
+cursor.execute(
+  "UPDATE clientes SET client_name="+ciudad_ideal.city_name+
+  " WHERE client_id = "+str(clientes.iloc[0].client_id));
+connection.commit()
+cursor.close()
+"""
