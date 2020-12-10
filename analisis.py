@@ -85,6 +85,7 @@ def algoritmo():
     
     df['score'] = 0
     
+    
     """Pollution Variable"""
     
     env_score = clientes.iloc[0].enviromental_score
@@ -283,9 +284,7 @@ def algoritmo():
       for _, i in landscape_cities.iterrows():
         df.loc[i.city_id == df.city_id, 'score']+=1
         
-        
-    print(weather_cities)
-    
+            
     """ELEGIR CIUDAD"""
     
     ciudad_ideal = df[df.score == df.score.max()]
@@ -296,10 +295,18 @@ def algoritmo():
     
     cursor = connection.cursor()
     cursor.execute(
-      "UPDATE clientes SET client_name='"+ciudad_ideal.iloc[0].city_name+"'"+
+      "UPDATE clientes SET best_city_name1='"+ciudad_ideal.iloc[0].city_name+"'"+
       " WHERE client_id = "+str(clientes.iloc[0].client_id));
     connection.commit()
     cursor.close()
+    
+    if len(ciudad_ideal) > 2:
+        cursor = connection.cursor()
+        cursor.execute(
+          "UPDATE clientes SET best_city_name1='"+ciudad_ideal.iloc[1].city_name+"'"+
+          " WHERE client_id = "+str(clientes.iloc[0].client_id));
+        connection.commit()
+        cursor.close()
     
     return ciudad_ideal
 
