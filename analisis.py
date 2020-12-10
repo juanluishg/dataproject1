@@ -70,7 +70,7 @@ def algoritmo():
     
     """Obtain "clientes" of the clients responses"""
     
-    cursor.execute("SELECT * FROM clientes WHERE client_id= 2 ORDER BY client_id DESC;")
+    cursor.execute("SELECT * FROM clientes ORDER BY client_id DESC;")
     record = cursor.fetchall()
     
     cursor.execute("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'clientes'")
