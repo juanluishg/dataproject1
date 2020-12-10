@@ -255,37 +255,38 @@ def algoritmo():
     df.loc[df.life_expectancy == max_life, 'score'] += 0.5
     
     """Factor"""
-    
     factor = clientes.iloc[0].interest_variable
     if factor == 'Medio ambiente':
-      for _, i in pollution_cities:
+      for _, i in pollution_cities.iteritems():
         df.loc[i.city_id == df.city_id, 'score']+=1
     elif factor == 'Zona de trabajo':
-      for _, i in wk_cities:
+      for _, i in wk_cities.iteritems():
         df.loc[i.city_id == df.city_id, 'score']+=1
     elif factor == 'Tamaño de la ciudad':
-      for _, i in size_cities:
+      for _, i in size_cities.iteritems():
         df.loc[i.city_id == df.city_id, 'score']+=1
     elif factor == 'Ocio':
-      for _, i in leisure_cities:
+      for _, i in leisure_cities.iteritems():
         df.loc[i.city_id == df.city_id, 'score']+=1
     elif factor == 'Gasto en vivienda':
-      for _, i in housing_cities:
+      for _, i in housing_cities.iteritems():
         df.loc[i.city_id == df.city_id, 'score']+=1
     elif factor == 'Clima':
-      for _, i in weather_cities[0].city_id.iteritems():
+      for _, i in weather_cities.iteritems():
         df.loc[i == df.city_id, 'score']+=1
     elif factor == 'Movilidad urbana':
-      for _, i in transport_cities:
+      for _, i in transport_cities.iteritems():
         df.loc[i.city_id == df.city_id, 'score']+=1
     elif factor == 'Paisaje':
-      for _, i in landscape_cities:
+      for _, i in landscape_cities.iteritems():
         df.loc[i.city_id == df.city_id, 'score']+=1
     
     """ELEGIR CIUDAD"""
     
     ciudad_ideal = df[df.score == df.score.max()]
-    print("Tu ciudad ideal es: "+ ciudad_ideal.city_name)
+    #print(ciudad_ideal)
+    print("Tu ciudad ideal es: "+ ciudad_ideal.city_name + "\n")
+    print("con una puntuación de: "+str(ciudad_ideal.score))
     
     
     cursor = connection.cursor()
