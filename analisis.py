@@ -60,7 +60,7 @@ def algoritmo():
     array_columns_name = np.array(columns_name)
     array_columns_name = np.concatenate( array_columns_name, axis=0 )
     
-    print(array_columns_name)
+    #print(array_columns_name)
     
     """Transform result of query to a pandas dataframe"""
     
@@ -89,7 +89,7 @@ def algoritmo():
     
     env_score = clientes.iloc[0].enviromental_score
     pollution_cities = pd.DataFrame()
-    print(env_score)
+    #print(env_score)
     if env_score == 5:
       min = df.pollution.min()
       df.loc[df.pollution == min, 'score'] +=1
@@ -130,7 +130,7 @@ def algoritmo():
       aux['ratio'] = ratio*100
       aux.loc[aux.ratio > 0.006, 'score'] +=1
       wk_cities = aux.loc[aux.ratio>0.006]
-      print(aux.head())
+      #print(aux.head())
     
     #wk_cities
     
