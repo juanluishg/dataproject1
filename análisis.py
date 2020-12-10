@@ -130,34 +130,6 @@ if wk_space == 'Co-Working':
 
 wk_cities
 
-"""Factor"""
-
-factor = clientes.iloc[0].interest_variable
-if factor == 'Medio ambiente':
-  for _, i in pollution_cities:
-    df.score[i.city_id == df.city_id]=+1
-elif factor == 'Zona de trabajo':
-  for _, i in wk_cities:
-    df.score[i.city_id == df.city_id]=+1
-elif factor == 'Tamaño de la ciudad':
-  for _, i in size_cities:
-    df.score[i.city_id == df.city_id]=+1
-elif factor == 'Ocio':
-  for _, i in leisure_cities:
-    df.score[i.city_id == df.city_id]=+1
-elif factor == 'Gasto en vivienda':
-  for _, i in economy_cities:
-    df.score[i.city_id == df.city_id]=+1
-elif factor == 'Clima':
-  for _, i in weather_cities:
-    df.score[i.city_id == df.city_id]=+1
-elif factor == 'Movilidad urbana':
-  for _, i in transport_cities:
-    df.score[i.city_id == df.city_id]=+1
-elif factor == 'Paisaje':
-  for _, i in landscape_cities:
-    df.score[i.city_id == df.city_id]=+1
-
 """Transport Variable"""
 
 a = {'Walking': 'Andando', 'Car': 'Coche', 'Bike': 'Bici', 'Motorbike': 'Moto', 'Bus/Trolleybus': 'Bus', 'Tram/Streetcar': 'Tranvía', 'Train/Metro': 'Metro'}
@@ -168,9 +140,6 @@ df.score[df.best_mobility_option == clientex]+=1
 print(df.head())
 transport_cities = df.loc[df.best_mobility_option == clientex]
 
-print(df.beach)
-
-cliente= clientes.iloc[0]
 
 """"
 cliente = clientes.iloc[0].transport
@@ -179,6 +148,8 @@ for _, i in df.iterrows():
     df.score[df.city_id == i.city_id] += 1
 print(df.head())
 """"
+
+cliente= clientes.iloc[0]
 
 #df.loc[(df.mountain == True & cliente.place_score == 'Montaña' & df.beach  == False, 'score'] =+ 1
 
@@ -198,15 +169,8 @@ for _, i in df.iterrows():
   elif i.mountain == False and i.beach == False and cliente.place_score == 'Ninguno':
     df.score[df.city_id == i.city_id] += 1
     landscape_cities = pd.concat([landscape_cities, i])
-
-print(landscape_cities[0].city_name)
 df.score[landscape_cities.city_id == df.city_id] += 1
 
-df[df.score == df.score.max()]
-
-df.head()
-
-clientes.head()
 
 """Weather Variable"""
 
@@ -286,3 +250,35 @@ df.score[df.freedom == max] += 0.5
 
 max = df.life_expectancy.max()
 df.score[df.life_expectancy == max] += 0.5
+
+"""Factor"""
+
+factor = clientes.iloc[0].interest_variable
+if factor == 'Medio ambiente':
+  for _, i in pollution_cities:
+    df.score[i.city_id == df.city_id]=+1
+elif factor == 'Zona de trabajo':
+  for _, i in wk_cities:
+    df.score[i.city_id == df.city_id]=+1
+elif factor == 'Tamaño de la ciudad':
+  for _, i in size_cities:
+    df.score[i.city_id == df.city_id]=+1
+elif factor == 'Ocio':
+  for _, i in leisure_cities:
+    df.score[i.city_id == df.city_id]=+1
+elif factor == 'Gasto en vivienda':
+  for _, i in economy_cities:
+    df.score[i.city_id == df.city_id]=+1
+elif factor == 'Clima':
+  for _, i in weather_cities:
+    df.score[i.city_id == df.city_id]=+1
+elif factor == 'Movilidad urbana':
+  for _, i in transport_cities:
+    df.score[i.city_id == df.city_id]=+1
+elif factor == 'Paisaje':
+  for _, i in landscape_cities:
+    df.score[i.city_id == df.city_id]=+1
+
+"""ELEGIR CIUDAD"""
+
+df[df.score == df.score.max()]
