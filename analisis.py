@@ -300,7 +300,7 @@ def algoritmo():
     connection.commit()
     cursor.close()
     
-    if len(ciudad_ideal) > 2:
+    if len(ciudad_ideal) >= 2:
         cursor = connection.cursor()
         cursor.execute(
           "UPDATE clientes SET best_city_name1='"+ciudad_ideal.iloc[1].city_name+"'"+
