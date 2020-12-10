@@ -124,6 +124,7 @@ def algoritmo():
     """Work Spaces Variable"""
     
     wk_space = clientes.iloc[0].work_preference
+    wk_cities = pd.DataFrame()
     if wk_space == 'Co-Working':
       ratio = df['work_spaces'] /df['c_population']
       aux = df
@@ -254,6 +255,7 @@ def algoritmo():
     max_life = df.life_expectancy.max()
     df.loc[df.life_expectancy == max_life, 'score'] += 0.5
     
+
     """Factor"""
     factor = clientes.iloc[0].interest_variable
     if factor == 'Medio ambiente':
