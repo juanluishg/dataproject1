@@ -88,7 +88,7 @@ def algoritmo():
     """Pollution Variable"""
     
     env_score = clientes.iloc[0].enviromental_score
-    pollution_cities = pd.DataFrame()
+    pollution_cities = pd.DataFrame(columns=df.columns)
     #print(env_score)
     if env_score == 5:
       min = df.pollution.min()
@@ -99,32 +99,32 @@ def algoritmo():
       mins = order_by_pollution.iloc[:2]
       for _, i in mins.iterrows():
         df.loc[df.city_id == i.city_id, 'score'] += 1
-        pd.concat([pollution_cities, i])
+        pollution_cities = pollution_cities.append(i)
     elif env_score == 3:
       order_by_pollution = df.sort_values(by=['pollution'], ascending=True)
       mins = order_by_pollution.iloc[:3]
       for _, i in mins.iterrows():
         df.loc[df.city_id == i.city_id, 'score'] += 1
-        pd.concat([pollution_cities, i])
+        pollution_cities = pollution_cities.append(i)
     elif env_score == 2:
       order_by_pollution = df.sort_values(by=['pollution'], ascending=True)
       mins = order_by_pollution.iloc[:4]
       for _, i in mins.iterrows():
         df.loc[df.city_id == i.city_id, 'score'] += 1
-        pd.concat([pollution_cities, i])
+        pollution_cities = pollution_cities.append(i)
     elif env_score == 1:
       order_by_pollution = df.sort_values(by=['pollution'], ascending=True)
       mins = order_by_pollution.iloc[:5]
       for _, i in mins.iterrows():
         df.loc[df.city_id == i.city_id, 'score'] += 1
-        pd.concat([pollution_cities, i])
+        pollution_cities = pollution_cities.append(i)
     
     #df.head()
     
     """Work Spaces Variable"""
     
     wk_space = clientes.iloc[0].work_preference
-    wk_cities = pd.DataFrame()
+    wk_cities = pd.DataFrame(columns=df.columns)
     if wk_space == 'Co-Working':
       ratio = df['work_spaces'] /df['c_population']
       aux = df
@@ -159,71 +159,71 @@ def algoritmo():
     
     """Landscape Variable"""
     
-    landscape_cities = pd.DataFrame()
+    landscape_cities = pd.DataFrame(columns=df.columns)
     for _, i in df.iterrows():
       if i.mountain == True and i.beach == False and cliente.place_score == 'Montaña':
         df.loc[df.city_id == i.city_id, 'score'] += 1
-        landscape_cities = pd.concat([landscape_cities, i])
+        landscape_cities = landscape_cities.append(i)
       elif i.mountain == False and i.beach == True and cliente.place_score == 'Playa':
         df.loc[df.city_id == i.city_id, 'score'] += 1
-        landscape_cities = pd.concat([landscape_cities, i])
+        landscape_cities = landscape_cities.append(i)
       elif i.mountain == True and i.beach == True and cliente.place_score == 'Ambos':
         df.loc[df.city_id == i.city_id, 'score'] += 1
-        landscape_cities = pd.concat([landscape_cities, i])
+        landscape_cities = landscape_cities.append(i)
       elif i.mountain == False and i.beach == False and cliente.place_score == 'Ninguno':
         df.loc[df.city_id == i.city_id, 'score'] += 1
-        landscape_cities = pd.concat([landscape_cities, i])
+        landscape_cities = landscape_cities.append(i)
     
     
     
     """Weather Variable"""
     
-    weather_cities = pd.DataFrame()
+    weather_cities = pd.DataFrame(columns= df.columns)
     for _, i in df.iterrows():
       if (i.c_temp < 15 or i.c_rainy_days > 20) and cliente.season == 'Invierno':
         df.loc[df.city_id == i.city_id, 'score'] += 1
-        weather_cities = pd.concat([weather_cities, i])
+        weather_cities = weather_cities.append(i)
       elif (15 <= i.c_temp <= 25 or  10 <= i.c_rainy_days) <= 20 and cliente.season == 'Primavera':
         df.loc[df.city_id == i.city_id, 'score'] += 1
-        weather_cities = pd.concat([weather_cities, i])
+        weather_cities = weather_cities.append(i)
       elif (i.c_temp > 25 or i.c_rainy_days < 10) and cliente.season == 'Verano':
         df.loc[df.city_id == i.city_id, 'score'] += 1
-        weather_cities = pd.concat([weather_cities, i])
+        weather_cities = weather_cities.append(i)
       elif (15 <= i.c_temp <= 25 or  10 <= i.c_rainy_days <= 20) and cliente.season == 'Otoño':
         df.loc[df.city_id == i.city_id, 'score'] += 1
-        weather_cities = pd.concat([weather_cities, i])
+        weather_cities = weather_cities.append(i)
     
     """Housing Variable"""
     
-    housing_cities = pd.DataFrame()
+    housing_cities = pd.DataFrame(columns=df.columns)
     for _, i in df.iterrows():
       if i.housing and cliente.percentaje_home > 50:
         df.loc[df.city_id == i.city_id, 'score'] += 1
-        housing_cities = pd.concat([housing_cities, i])
+        housing_cities = housing_cities.append(i)
       elif i.housing < 15 and 30 <= cliente.percentaje_home <= 50:
         df.loc[df.city_id == i.city_id, 'score'] += 1
-        housing_cities = pd.concat([housing_cities, i])
+        housing_cities = housing_cities.append(i)
       elif i.housing < 5 and cliente.percentaje_home < 30:
         df.loc[df.city_id == i.city_id, 'score'] += 1
-        housing_cities = pd.concat([housing_cities, i])
+        housing_cities = housing_cities.append(i)
     
     """Size Variable"""
     
-    size_cities = pd.DataFrame()
+    size_cities = pd.DataFrame(columns=df.columns)
     for _, i in df.iterrows():
       if i.c_population < 2000000 and cliente.size_preference == 'Pequeñas':
         df.loc[df.city_id == i.city_id, 'score'] += 1
-        size_cities = pd.concat([size_cities, i])
+        size_cities = size_cities.append(i)
       elif 2000000 <= i.c_population <= 4000000 and cliente.size_preference == 'Medianas':
         df.loc[df.city_id == i.city_id, 'score'] += 1
-        size_cities = pd.concat([size_cities, i])
+        size_cities = size_cities.append(i)
       elif i.c_population > 4000000 and cliente.size_preference == 'Grandes':
         df.loc[df.city_id == i.city_id, 'score'] += 1
-        size_cities = pd.concat([size_cities, i])
+        size_cities = size_cities.append(i)
     
     """Leisure Variable"""
     
-    leisure_cities = pd.DataFrame()
+    leisure_cities = pd.DataFrame(columns=df.columns)
     if cliente.entreteiment == 'Sí':
       max_leisure = df.leisure.max()
       df.loc[df.leisure == max_leisure, 'score'] += 1
@@ -259,29 +259,32 @@ def algoritmo():
     """Factor"""
     factor = clientes.iloc[0].interest_variable
     if factor == 'Medio ambiente':
-      for _, i in pollution_cities.iteritems():
+      for _, i in pollution_cities.iterrows():
         df.loc[i.city_id == df.city_id, 'score']+=1
     elif factor == 'Zona de trabajo':
-      for _, i in wk_cities.iteritems():
+      for _, i in wk_cities.iterrows():
         df.loc[i.city_id == df.city_id, 'score']+=1
     elif factor == 'Tamaño de la ciudad':
-      for _, i in size_cities.iteritems():
+      for _, i in size_cities.iterrows():
         df.loc[i.city_id == df.city_id, 'score']+=1
     elif factor == 'Ocio':
-      for _, i in leisure_cities.iteritems():
+      for _, i in leisure_cities.iterrows():
         df.loc[i.city_id == df.city_id, 'score']+=1
     elif factor == 'Gasto en vivienda':
-      for _, i in housing_cities.iteritems():
+      for _, i in housing_cities.iterrows():
         df.loc[i.city_id == df.city_id, 'score']+=1
     elif factor == 'Clima':
-      for _, i in weather_cities.iteritems():
+      for _, i in weather_cities.iterrows():
         df.loc[i == df.city_id, 'score']+=1
     elif factor == 'Movilidad urbana':
-      for _, i in transport_cities.iteritems():
+      for _, i in transport_cities.iterrows():
         df.loc[i.city_id == df.city_id, 'score']+=1
     elif factor == 'Paisaje':
-      for _, i in landscape_cities.iteritems():
+      for _, i in landscape_cities.iterrows():
         df.loc[i.city_id == df.city_id, 'score']+=1
+        
+        
+    print(weather_cities)
     
     """ELEGIR CIUDAD"""
     
