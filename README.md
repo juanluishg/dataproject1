@@ -12,6 +12,7 @@ https://www.youtube.com/watch?v=c4Fv_oO_Vm4
 ## Anexos
 
 https://drive.google.com/drive/folders/15XZbsJrT2wsCwGE83Unb_iOQQy_V-x1O?usp=sharing
+https://trello.com/b/sGpuxclx/dataproject1
 
 ## Proceso
 
