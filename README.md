@@ -39,6 +39,12 @@
 
 <img src="https://raw.githubusercontent.com/juanluishg/dataproject1/main/Esquema_Datos.png"/>
 
+## Esquema del Github
+- [**Data**](https://github.com/juanluishg/dataproject1/tree/main/Data): Carpeta que contiene los csv de los datos de las ciudades utilizados. Estructurados por ciudades
+- [**Dockers**](https://github.com/juanluishg/dataproject1/tree/main/Dockers): Carpeta con los DockerFiles y los docker-compose para levantar en docker tanto la base de datos como el proceso python. Estructurados por servicio.
+- [**Talend**](https://github.com/juanluishg/dataproject1/tree/main/Talend): Carpeta con los Jobs de Talend exportados. Estructurados por ciudades
+- [**analisis.py**](https://github.com/juanluishg/dataproject1/blob/main/analisis.py): Fichero python del proceso python que hace todo el proceso de obtener una ciudad para un cliente
+
 ## Anexos
 
 [Google Drive](https://drive.google.com/drive/folders/15XZbsJrT2wsCwGE83Unb_iOQQy_V-x1O?usp=sharing)
