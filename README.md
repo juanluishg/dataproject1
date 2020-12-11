@@ -9,11 +9,6 @@
 1. Entrar a [TypeForm](https://juanluishg.typeform.com/to/kSAaM7eb) y realizar el cuestionario.
 2. Entrar en [Google DataStudio](https://datastudio.google.com/reporting/d382cf32-f13f-4782-8f74-b7816a95beca) , clickar sobre el actualizar y se visualizarán los datos.
 
-## Anexos
-
-[Google Drive](https://drive.google.com/drive/folders/15XZbsJrT2wsCwGE83Unb_iOQQy_V-x1O?usp=sharing)
-
-[Trello](https://trello.com/b/sGpuxclx/dataproject1)
 
 ## Proceso
 
@@ -39,3 +34,14 @@
 - **Google Data Studio**:  Para mostrar los datos finales hemos elegido data studio ya que de una forma sencilla y vistosa se pueden mostrar los datos que tenemos almacenados en PostgresSQL. Podemos poner algunos gráficos de lo datos de las ciudades que justifican la elección de esa ciudad por parte de nuestro algoritmo. Así como enseñar al usuario que ciudad es la mas adecuada para él.
 - **Google Cloud**: Hemos elegido google cloud para tener ejecutando constantemente tanto la base de datos, como el gestor de bases de datos(PGAdmin) y el código python. Su elección es debido a que ha sido el que se ha visto en clase y con el cual nos sentíamos cómodos para trabajar.
 - **Docker**: se han implementado tres docker, uno para la base de datos, otro para el gestor y otro para ejecutar el algoritmo. Se ha decidido así ya que era una forma de realizar el despliegue y la configuración de manera automática. Así además, este sistema se convierte en escalable, ya que ante un aumento de respuestas de los clientes, se pueden desplegar más contenedores de la parte que se necesite escalar en ese momento.
+
+
+## Anexos
+
+[Google Drive](https://drive.google.com/drive/folders/15XZbsJrT2wsCwGE83Unb_iOQQy_V-x1O?usp=sharing)
+
+[Trello](https://trello.com/b/sGpuxclx/dataproject1)
+
+[PGAdmin](http://34.78.89.69:5050)
+  - pgadmin4@pgadmin.org
+  - admin
