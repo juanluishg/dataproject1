@@ -1,5 +1,7 @@
 # Dataproject 1 - Karimun Jawa
 
+<img src="https://github.com/juanluishg/dataproject1/blob/main/WhatsApp%20Image%202020-12-11%20at%2022.35.04.jpeg" width=50%/>
+
 ## Video Explicativo
 
 [Video Youtube](https://www.youtube.com/watch?v=c4Fv_oO_Vm4)
