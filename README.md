@@ -54,3 +54,10 @@
 [PGAdmin](http://34.78.89.69:5050)
   - pgadmin4@pgadmin.org
   - admin
+
+## Contribuidores
+- Amparo Botella
+- Carlos Donoso
+- Jordi Oltra
+- Juan Luis Hernández
+- María Carbonell
