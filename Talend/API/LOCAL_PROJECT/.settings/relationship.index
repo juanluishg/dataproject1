@@ -68,70 +68,6 @@
     "type" : "job"
   },
   "relatedItems" : [ {
-    "id" : "_1sX8YDipEeuOCL0KXmwllg",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
-    "id" : "_Fv5J4DZmEeub9OXGBfj5-Q",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
-    "id" : "_GmetEDiqEeuOCL0KXmwllg",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
-    "id" : "_KY08EDbjEeuWneoHB-ETEQ",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
-    "id" : "_OUdrMDbjEeuWneoHB-ETEQ",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
-    "id" : "_Tz6WcDbjEeuWneoHB-ETEQ",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
-    "id" : "_WEsdkDb0EeuxBbF7_elhdQ",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
-    "id" : "__WhFMDbiEeuWneoHB-ETEQ",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
-    "id" : "_aKgFEDbjEeuWneoHB-ETEQ",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
-    "id" : "_bwHNcDbiEeuWneoHB-ETEQ",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
-    "id" : "_eKUAQDipEeuOCL0KXmwllg",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
-    "id" : "_eS6GIDiqEeuOCL0KXmwllg",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
-    "id" : "_ewn7oDbjEeuWneoHB-ETEQ",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
-    "id" : "_lA6pcDbtEeuxBbF7_elhdQ",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
-    "id" : "_oraAcDipEeuOCL0KXmwllg",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
-    "id" : "_wqBakDbtEeuxBbF7_elhdQ",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
     "id" : "DataOperation",
     "version" : "Latest",
     "type" : "routine"
@@ -167,66 +103,6 @@
     "id" : "TalendStringUtil",
     "version" : "Latest",
     "type" : "routine"
-  }, {
-    "id" : "_1sX8YDipEeuOCL0KXmwllg - metadata",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
-    "id" : "_Fv5J4DZmEeub9OXGBfj5-Q - IPC",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
-    "id" : "_GmetEDiqEeuOCL0KXmwllg - metadata",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
-    "id" : "_KY08EDbjEeuWneoHB-ETEQ - metadata",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
-    "id" : "_OUdrMDbjEeuWneoHB-ETEQ - metadata",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
-    "id" : "_Tz6WcDbjEeuWneoHB-ETEQ - metadata",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
-    "id" : "__WhFMDbiEeuWneoHB-ETEQ - metadata",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
-    "id" : "_aKgFEDbjEeuWneoHB-ETEQ - metadata",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
-    "id" : "_bwHNcDbiEeuWneoHB-ETEQ - metadata",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
-    "id" : "_eKUAQDipEeuOCL0KXmwllg - metadata",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
-    "id" : "_eS6GIDiqEeuOCL0KXmwllg - metadata",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
-    "id" : "_ewn7oDbjEeuWneoHB-ETEQ - metadata",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
-    "id" : "_lA6pcDbtEeuxBbF7_elhdQ - metadata",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
-    "id" : "_oraAcDipEeuOCL0KXmwllg - metadata",
-    "version" : "Latest",
-    "type" : "schema"
-  }, {
-    "id" : "_wqBakDbtEeuxBbF7_elhdQ - metadata",
-    "version" : "Latest",
-    "type" : "schema"
   } ]
 }, {
   "baseItem" : {
@@ -235,10 +111,6 @@
     "type" : "job"
   },
   "relatedItems" : [ {
-    "id" : "_WEsdkDb0EeuxBbF7_elhdQ",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
     "id" : "DataOperation",
     "version" : "Latest",
     "type" : "routine"
@@ -274,10 +146,6 @@
     "id" : "TalendStringUtil",
     "version" : "Latest",
     "type" : "routine"
-  }, {
-    "id" : "_WEsdkDb0EeuxBbF7_elhdQ - datos",
-    "version" : "Latest",
-    "type" : "schema"
   } ]
 }, {
   "baseItem" : {
@@ -329,10 +197,6 @@
     "type" : "job"
   },
   "relatedItems" : [ {
-    "id" : "_WEsdkDb0EeuxBbF7_elhdQ",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
     "id" : "DataOperation",
     "version" : "Latest",
     "type" : "routine"
@@ -368,10 +232,6 @@
     "id" : "TalendStringUtil",
     "version" : "Latest",
     "type" : "routine"
-  }, {
-    "id" : "_WEsdkDb0EeuxBbF7_elhdQ - datos",
-    "version" : "Latest",
-    "type" : "schema"
   } ]
 }, {
   "baseItem" : {
@@ -380,10 +240,6 @@
     "type" : "job"
   },
   "relatedItems" : [ {
-    "id" : "_WEsdkDb0EeuxBbF7_elhdQ",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
     "id" : "DataOperation",
     "version" : "Latest",
     "type" : "routine"
@@ -419,10 +275,6 @@
     "id" : "TalendStringUtil",
     "version" : "Latest",
     "type" : "routine"
-  }, {
-    "id" : "_WEsdkDb0EeuxBbF7_elhdQ - datos",
-    "version" : "Latest",
-    "type" : "schema"
   } ]
 }, {
   "baseItem" : {
