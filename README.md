@@ -2,17 +2,18 @@
 
 ## Video Explicativo
 
-https://www.youtube.com/watch?v=c4Fv_oO_Vm4
+[Video Youtube](https://www.youtube.com/watch?v=c4Fv_oO_Vm4)
 
 ## Instrucciones de uso
 
-1. Entrar a https://juanluishg.typeform.com/to/kSAaM7eb y realizar el cuestionario.
-2. Entrar en https://datastudio.google.com/reporting/d382cf32-f13f-4782-8f74-b7816a95beca , clickar sobre el actualizar y se visualizarán los datos.
+1. Entrar a [TypeForm](https://juanluishg.typeform.com/to/kSAaM7eb) y realizar el cuestionario.
+2. Entrar en [Google DataStudio](https://datastudio.google.com/reporting/d382cf32-f13f-4782-8f74-b7816a95beca) , clickar sobre el actualizar y se visualizarán los datos.
 
 ## Anexos
 
-https://drive.google.com/drive/folders/15XZbsJrT2wsCwGE83Unb_iOQQy_V-x1O?usp=sharing
-https://trello.com/b/sGpuxclx/dataproject1
+[Google Drive](https://drive.google.com/drive/folders/15XZbsJrT2wsCwGE83Unb_iOQQy_V-x1O?usp=sharing)
+
+[Trello](https://trello.com/b/sGpuxclx/dataproject1)
 
 ## Proceso
 
