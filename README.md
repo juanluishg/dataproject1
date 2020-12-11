@@ -9,7 +9,9 @@ https://www.youtube.com/watch?v=c4Fv_oO_Vm4
 1. Entrar a https://juanluishg.typeform.com/to/kSAaM7eb y realizar el cuestionario.
 2. Entrar en https://datastudio.google.com/reporting/d382cf32-f13f-4782-8f74-b7816a95beca , clickar sobre el actualizar y se visualizarán los datos.
 
+## Anexos
 
+https://drive.google.com/drive/folders/15XZbsJrT2wsCwGE83Unb_iOQQy_V-x1O?usp=sharing
 
 ## Proceso
 
