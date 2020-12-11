@@ -35,6 +35,9 @@
 - **Google Cloud**: Hemos elegido google cloud para tener ejecutando constantemente tanto la base de datos, como el gestor de bases de datos(PGAdmin) y el código python. Su elección es debido a que ha sido el que se ha visto en clase y con el cual nos sentíamos cómodos para trabajar.
 - **Docker**: se han implementado tres docker, uno para la base de datos, otro para el gestor y otro para ejecutar el algoritmo. Se ha decidido así ya que era una forma de realizar el despliegue y la configuración de manera automática. Así además, este sistema se convierte en escalable, ya que ante un aumento de respuestas de los clientes, se pueden desplegar más contenedores de la parte que se necesite escalar en ese momento.
 
+## Esquema de la Base de Datos
+
+<img src="https://raw.githubusercontent.com/juanluishg/dataproject1/main/Esquema_Datos.png"/>
 
 ## Anexos
 
