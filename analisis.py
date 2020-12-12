@@ -276,7 +276,7 @@ def algoritmo():
         df.loc[i.city_id == df.city_id, 'score']+=1
     elif factor == 'Clima':
       for _, i in weather_cities.iterrows():
-        df.loc[i == df.city_id, 'score']+=1
+        df.loc[i.city_id == df.city_id, 'score']+=1
     elif factor == 'Movilidad urbana':
       for _, i in transport_cities.iterrows():
         df.loc[i.city_id == df.city_id, 'score']+=1
